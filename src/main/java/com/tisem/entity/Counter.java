@@ -1,7 +1,9 @@
 package com.tisem.entity;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
@@ -9,8 +11,6 @@ import java.io.Serializable;
 public class Counter implements Serializable {
 
     @Id
-    @NotNull
-    @GeneratedValue
     private int id;
 
     private int value;
