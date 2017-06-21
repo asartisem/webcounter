@@ -1,7 +1,6 @@
 package com.tisem.service;
 
 import com.tisem.dao.CounterDao;
-import com.tisem.entity.Counter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,14 +15,15 @@ public class CounterService {
     }
 
     public void incrementCount() {
-        int val = getValue() + 1;
-        Counter counter = counterDao.findById(1);
-        counter.setValue(val);
-        counterDao.save(counter);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        counterDao.incrementValue();
     }
 
     public void decrementCount() {
-        int val = getValue() - 1;
-        counterDao.save(new Counter(1, val));
+        counterDao.decrementValue();
     }
 }

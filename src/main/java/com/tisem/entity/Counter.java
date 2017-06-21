@@ -13,7 +13,6 @@ public class Counter implements Serializable {
     @GeneratedValue
     private int id;
 
-    @Column(name = "value")
     private int value;
 
     public Counter(int id, int value) {
@@ -21,8 +20,7 @@ public class Counter implements Serializable {
         this.value = value;
     }
 
-    public Counter() {
-
+    private Counter() {
     }
 
     public int getId() {
