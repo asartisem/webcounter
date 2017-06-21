@@ -15,11 +15,6 @@ public class CounterService {
     }
 
     public void incrementCount() {
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         counterDao.incrementValue();
     }
 

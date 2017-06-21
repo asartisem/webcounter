@@ -14,14 +14,11 @@ public interface CounterDao extends CrudRepository<Counter, Integer> {
     Counter findById(int id);
 
     @Modifying
-    @Query(incrementValueQuery)
+    @Query("UPDATE Counter c SET c.value = c.value + 1 WHERE c.id = 1")
     void incrementValue();
 
     @Modifying
-    @Query(decrementValueQuery)
+    @Query("UPDATE Counter c SET c.value = c.value - 1 WHERE c.id = 1")
     void decrementValue();
-
-    String incrementValueQuery= "UPDATE Counter c set c.value = c.value + 1 WHERE c.id = 1";
-    String decrementValueQuery= "UPDATE Counter c set c.value = c.value - 1 WHERE c.id = 1";
 
 }
